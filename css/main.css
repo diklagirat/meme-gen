@@ -6,12 +6,12 @@
 
 @font-face {
     font-family: 'poppins-ligth';
-    src: url(/fonts/Poppins/Poppins-Light.ttf)
+    src: url(../fonts/Poppins/Poppins-Light.ttf)
 }
 
 @font-face {
     font-family: 'poppins-medum';
-    src: url(/fonts/Poppins/Poppins-Medium.ttf);
+    src: url(../fonts/Poppins/Poppins-Medium.ttf);
 }
 /* Basic */
 
