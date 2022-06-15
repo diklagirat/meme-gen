@@ -1,7 +1,10 @@
 'use- strict'
 
 var gMeme
+
 createMeme('1')
+
+// Create meme
 function createMeme(imgId) {
     gMeme = {
         selectedImgID: imgId,
@@ -22,7 +25,12 @@ function createMeme(imgId) {
         ]
     }
 }
-
+// Read meme
 function getMeme() {
     return gMeme
+}
+
+// Update meme
+function setLineTxt(txt) {
+    gMeme.lines[0].txt = txt
 }
