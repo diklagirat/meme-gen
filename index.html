@@ -9,7 +9,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body  onload="init()">
     <header>
         <div class="header-container">
             <div class="main-header">
@@ -26,8 +26,29 @@
 
     <main class="main-container">
         <section class="gallery-container"></section>
-        <section class="editor-container"></section>
+        <section class="editor-container">
+            <canvas id="my-canvas"
+            height="450"
+            width="450">
+            </canvas>
+            <div class="controller-box">
+                <input type="text" class="input-text" placeholder="Enter text.."/>
+                <div class="set-up-btn">
+                    <button>move line up/down</button>
+                    <button>switch between txt line</button>
+                    <button>add txt line</button>
+                    <button>delete txt line</button>
+                </div>
+                <div class="edit-txt-btn">
+                    <label>font color:<input type="color" class="font-color"/></label>
+                    <label>strock color:<input type="color" class="strock-color"/></label>
+                    <button class="increase">A+</button>
+                    <button class="decrease">A-</button>
+                </div>
+            </div>
+        </section>
     </main>
+    <script src="js/meme-controller.js"></script>
 </body>
 
 </html>

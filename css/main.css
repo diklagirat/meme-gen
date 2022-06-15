@@ -78,3 +78,9 @@ body {
     padding: 0;
     list-style-type: none;
 }
+
+/* Canvas*/
+
+canvas{
+    background-color: white;
+}
