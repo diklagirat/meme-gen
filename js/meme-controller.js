@@ -5,12 +5,14 @@ var gElCanvas
 function init() {
     gElCanvas = document.getElementById('my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    renderGallery()
     renderMeme()
 }
 
 // Render meme on cavnvas
 function renderMeme() {
     const meme = getMeme()
+    console.log(meme)
     drawImage(meme)
 }
 
@@ -32,7 +34,7 @@ function drawImage(meme) {
 function drawText(meme) {
     const { txt, size, color, strok, pos } = meme.lines[0]
     gCtx.text = txt
-    gCtx.lineWidth = 2
+    gCtx.lineWidth = 1
     gCtx.fillStyle = color
     gCtx.strokeStyle = strok
     gCtx.font = `${size}px Ariel`
