@@ -26,7 +26,7 @@
 
     <main class="main-container">
         <section class="gallery-container"></section>
-        <section class="editor-container">
+        <section class="editor-container flex">
             <canvas id="my-canvas"
             height="450"
             width="450">
@@ -35,17 +35,23 @@
                 <input type="text" class="text-input" placeholder="Enter text.."
                 oninput="onSetlineTxt(event)" />
                 <div class="set-up-btn">
-                    <button>move line up/down</button>
-                    <button>switch between txt line</button>
-                    <button>add txt line</button>
-                    <button>delete txt line</button>
+                    <button class="btn move-up">↑</button>
+                    <button class="btn move-down">↓</button>
+                    <button class="btn switch-line">⇅</button>
+                    <button class="btn add-line">+</button>
+                    <button class="btn del-line">del</button>
                 </div>
-                <div class="edit-txt-btn">
-                    <label>font color:<input type="color" class="font-color"/></label>
-                    <label>strock color:<input type="color" class="strock-color"/></label>
-                    <button class="increase">A+</button>
-                    <button class="decrease">A-</button>
-                </div>
+                <div class="btn edit-txt-btn">
+                        <button class="btn increase" onclick="onUpdateFontSize(1)">A+</button>
+                        <button class="btn decrease" onclick="onUpdateFontSize(-1)">A-</button>
+                        <button class="btn aline-left">=</button>
+                        <button class="btn aline-right">=</button>
+                        <button class="btn aling-center">=</button>
+                        <button class="btn fonts">Font</button>
+                        <input type="color" class="btn stroke-picker" />
+                        <input type="color" class="btn fill-picker" />
+                        <button class="btn share">Share</button>
+                    </div>
             </div>
         </section>
     </main>

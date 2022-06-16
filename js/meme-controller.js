@@ -11,35 +11,35 @@ function init() {
 
 // Render meme on cavnvas
 function renderMeme() {
-    const meme = getMeme()
-    console.log(meme)
-    drawImage(meme)
+    drawImage()
+    renderText()
 }
 
 // Draw image on canvas
-function drawImage(meme) {
-    const mem = meme.lines[0]
-    console.log(mem)
-    var image = new Image()
-    image.src = `img/${meme.selectedImgID}.jpg`
-    image.onload = () => {
-        gCtx.drawImage(image, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme)
-        //TODO: create dynamic line width -270
-        drawRect(mem.pos.x - 30, mem.pos.y - 40, 270, mem.size + 20, mem.color)
-    }
+function drawImage() {
+
+    const imgId = getSelectedImgID()
+    const elImg = document.querySelector(`#img-id-${imgId}`)
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+// Render text
+function renderText() {
+    const meme = getMeme()
+    const lines = meme.lines
+    lines.map(line => drawText(line))
 }
 
 // Draw text on canvas
-function drawText(meme) {
-    const { txt, size, color, strok, pos } = meme.lines[0]
-    gCtx.text = txt
+function drawText(line) {
+    const { txt, size, color, strok, pos } = getMeme()
+    gCtx.text = line.txt
     gCtx.lineWidth = 1
-    gCtx.fillStyle = color
-    gCtx.strokeStyle = strok
-    gCtx.font = `${size}px Ariel`
-    gCtx.fillText(txt, pos.x, pos.y)
-    gCtx.strokeText(txt, pos.x, pos.y)
+    gCtx.fillStyle = line.color
+    gCtx.strokeStyle = line.strok
+    gCtx.font = `${line.size}px Ariel`
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
 }
 
 // Update line text
@@ -54,4 +54,11 @@ function drawRect(x, y, xEnd, yEnd, color) {
     gCtx.strokeStyle = color
     gCtx.stroke()
     gCtx.closePath()
+}
+
+// Update font size
+function onUpdateFontSize(diff) {
+    console.log(diff)
+    updateFontSize(diff)
+    renderMeme()
 }

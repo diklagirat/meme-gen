@@ -6,8 +6,6 @@ var gImages
 gMeme = _createMeme()
 gImages = _createImages()
 
-
-
 // Create meme
 function _createMeme() {
     return {
@@ -15,7 +13,7 @@ function _createMeme() {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'Hi you!',
+                txt: 'Hey you..',
                 size: 40,
                 align: 'left',
                 color: 'white',
@@ -23,7 +21,19 @@ function _createMeme() {
                 border: 'white',
                 pos: {
                     x: 100,
-                    y: 50
+                    y: 80
+                }
+            },
+            {
+                txt: 'Start edit..',
+                size: 40,
+                align: 'left',
+                color: 'white',
+                strok: 'white',
+                border: 'white',
+                pos: {
+                    x: 100,
+                    y: 380
                 }
             }
         ]
@@ -67,4 +77,12 @@ function getImages() {
 
 function updateMemeImgId(imgId) {
     gMeme.selectedImgID = imgId
+}
+
+function getSelectedImgID() {
+    return gMeme.selectedImgID
+}
+
+function updateFontSize(diff) {
+    gMeme.lines[gMeme.selectedLineIdx].size += diff
 }

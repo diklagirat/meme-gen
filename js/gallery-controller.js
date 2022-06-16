@@ -1,6 +1,6 @@
 'use- strict'
 
-
+// Render gallery images
 function renderGallery() {
     const imgs = getImages()
     var strHTML = ''
@@ -13,4 +13,6 @@ function renderGallery() {
 function renderImgOnCanvas(imgId) {
     updateMemeImgId(imgId)
     renderMeme()
+
+    document.querySelector('.gallery-container').style.display = "none"
 }
