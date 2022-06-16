@@ -32,19 +32,20 @@ function renderText() {
 
 // Draw text on canvas
 function drawText(line) {
-    const { txt, size, color, strok, pos } = getMeme()
+    const { txt, size, color, strok, pos, font } = getMeme()
     gCtx.text = line.txt
     gCtx.lineWidth = 1
     gCtx.fillStyle = line.color
     gCtx.strokeStyle = line.strok
-    gCtx.font = `${line.size}px Ariel`
+    gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillText(line.txt, line.pos.x, line.pos.y)
     gCtx.strokeText(line.txt, line.pos.x, line.pos.y)
 }
 
-// Update line text
+// Handle event Update line text
 function onSetlineTxt(event) {
-    setLineTxt(event.target.value)
+    const txt = event.target.value
+    updateMeme('txt', txt)
     renderMeme()
 }
 
@@ -56,9 +57,44 @@ function drawRect(x, y, xEnd, yEnd, color) {
     gCtx.closePath()
 }
 
-// Update font size
+// Handle event Update font 
+function onUpdateFont(value) {
+    updateMeme('font', value)
+    renderMeme()
+}
+
+//Handle event Update font size
 function onUpdateFontSize(diff) {
-    console.log(diff)
     updateFontSize(diff)
+    renderMeme()
+}
+// Handle event Update stroke color
+function onUpdateStrokeColor(color) {
+    updateMeme('strok', color)
+    // updateStrokeColor(color)
+    renderMeme()
+}
+
+// Handle event Update fill color
+function onUpdateFillColor(color) {
+    updateMeme('color', color)
+    renderMeme()
+}
+
+// Handle event Update aligne text 
+function onUpdateTextAlignt(value) {
+    updateMeme('align', value)
+    updateTextAlign(value)
+    renderMeme()
+}
+
+// Handle event Add new line
+function onAddNewLine() {
+    addNewLine()
+    renderMeme()
+}
+// Handle event Delete line
+function onDeleteLine() {
+    deleteLine()
     renderMeme()
 }

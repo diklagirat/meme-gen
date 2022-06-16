@@ -13,7 +13,8 @@ function _createMeme() {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'Hey you..',
+                txt: 'Enter text here..',
+                font: 'impact',
                 size: 40,
                 align: 'left',
                 color: 'white',
@@ -25,7 +26,8 @@ function _createMeme() {
                 }
             },
             {
-                txt: 'Start edit..',
+                txt: 'Enter text here..',
+                font: 'impact',
                 size: 40,
                 align: 'left',
                 color: 'white',
@@ -70,19 +72,61 @@ function _createImages() {
         }
     ]
 }
-
+// Read images
 function getImages() {
     return gImages
 }
 
+// Update meme image id
 function updateMemeImgId(imgId) {
     gMeme.selectedImgID = imgId
 }
 
+// Get meme image id
 function getSelectedImgID() {
     return gMeme.selectedImgID
 }
 
+// Update font size
 function updateFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
+}
+
+// Update meme
+function updateMeme(key, value) {
+    const lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx][key] = value
+}
+
+// Update Text align
+function updateTextAlign(value) {
+    const lineIdx = gMeme.selectedLineIdx
+    if (value === 'left') gMeme.lines[lineIdx].pos.x = 45
+    else if (value === 'right') gMeme.lines[lineIdx].pos.x = 200
+    else if (value === 'center') gMeme.lines[lineIdx].pos.x = 120
+}
+
+// Add new  line
+function addNewLine() {
+    const newLine = {
+        txt: 'Enter text here..',
+        font: 'impact',
+        size: 40,
+        align: 'left',
+        color: 'white',
+        strok: 'white',
+        border: 'white',
+        pos: {
+            x: 100,
+            y: 220
+        }
+    }
+    gMeme.lines.push(newLine)
+}
+
+// Delete line
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    console.log(gMeme)
+
 }
