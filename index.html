@@ -35,9 +35,9 @@
                 <input type="text" class="text-input" placeholder="Enter text.."
                 oninput="onSetlineTxt(event)" />
                 <div class="set-up-btn">
-                    <button class="btn move-up">↑</button>
-                    <button class="btn move-down">↓</button>
-                    <button class="btn switch-line">⇅</button>
+                    <button class="btn move-up" onclick="onUpdateTextPos(10)">↑</button>
+                    <button class="btn move-down" onclick="onUpdateTextPos(-10)">↓</button>
+                    <button class="btn switch-line"onclick="onSwitchLine()">⇅</button>
                     <button class="btn add-line" onclick="onAddNewLine()">+</button>
                     <button class="btn del-line" onclick="onDeleteLine()">del</button>
                 </div>
@@ -53,7 +53,16 @@
                         </select>
                         <input type="color" class="btn stroke-picker" onchange="onUpdateStrokeColor(value)" />
                         <input type="color" class="btn fill-picker"onchange="onUpdateFillColor(value)" />
-                        <button class="btn share">Share</button>
+                        <button class="btn share" onclick="onShareFaceBook()">Share</button>
+                        <button class="btn download" onclick="onDownload()">
+                            <a href="#" class="btn" onclick="onDownload(this)"  download="">
+                                Download</a>
+                        </button>
+                        <!-- <select class="btn share-container" onchange="onShareMeme(value)">
+                            <option>Download</option>
+                            <option>Save</option>
+                            <option>Share</option>
+                        </select> -->
                     </div>
             </div>
         </section>
