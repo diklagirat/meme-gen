@@ -13,6 +13,7 @@
     font-family: 'poppins-medum';
     src: url(../fonts/poppins/Poppins-Medium.ttf);
 }
+
 /* Basic */
 
 body {
@@ -59,9 +60,6 @@ body {
     color: #21ac91;
 }
 
-.main-container {
-    background-color: #383b42;
-}
 
 /* Helper*/
 
@@ -82,53 +80,220 @@ body {
 /* Canvas*/
 
 canvas{
-    background-color: white;
+    border-radius: 20px;
 }
+
+/* Gallery */
 
 .gallery-container{
     display: grid;
-    padding: 40px 0;
+    padding: 30px 0px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: #383b42;
     grid-template-columns: repeat(auto-fill, 250px);
     grid-gap: 15px;
-    
     justify-content: center;
     align-content: center;
 }
+
 .gallery-container img{
     align-self: center;
     cursor: pointer;
+    border-radius: 20px;
     width: 240px;
 }
-/* edit container*/
+
+.gallery-container img:hover{
+    opacity: 0.65;
+}
+
+/* Editor Container */
+
+.editor-container{
+    display: none;
+
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+    border: none;
+}
+.editor-container > * {
+    text-align: center;
+}
+
+/* Buttons Editor*/
+
+.set-up-btn > * {
+    margin: 10px;
+}
+
 .btn{
-    width: 55px;
+    width: 45px;
     height: 50px;
-    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
-    border-radius: 10px;
-    background-color: #ffffff;
-    background-color: #ffffff;
     font-size: 34px;
+    color: #ebeef3;
+    cursor: pointer;
 }
-.font-container{
-    width: 230px;
-    font-size: 27px;
+
+.share, .download{
+    width: 50%;
 }
+
 .text-input{
     width: 445px;
     height: 57px;
-    box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
     border-radius: 28px;
     background-color: #ebeef3;
     text-align: center;
     font-size: 25px;
+    color: #3d3d3d;
+    margin: 20px 35px;
 }
+
 .edit-txt-btn{
     width: 445px;
     height: 151px;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #19a59f;
+    color: black;    
+    margin: 20px 35px;
 }
-.download, .share{
-    width: 210px;
+
+.edit-txt-btn > *{
+    margin: 10px;
+}
+
+.controller-box{
+    border-radius: 20px;
+    background-color: #383b42;
+}
+
+.controller-box .btn{
+    background-color: transparent;
+    border: none;
+
+}
+
+.fa-solid{
+    width: 46px;
+    height: 45px;
+    padding: 5px;
+    background-color: #ebeef3;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 #dbdbdb;
+}
+
+.fa-up-long{
+    box-shadow: 1px 5px 0 #b68b92, inset 0 5px 0 #f0bfc7;
+    background-image: linear-gradient(285deg, #f0bfc7 0%, #c498a0 100%);
+}
+
+.fa-down-long {
+    box-shadow: 1px 5px 0 #b68b92, inset 0 5px 0 #f0bfc7;
+    background-image: linear-gradient(285deg, #f0bfc7 0%, #c498a0 100%);
+}
+
+.fa-arrow-down-arrow-up{
+    box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+}
+
+.fa-arrow-down-arrow-up::before{
+    content: "\f362"; 
+}
+
+.fa-trash-can{
+    box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+}
+
+.fa-plus{
+    box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+}
+
+.increase .fa-font::after{
+    content:"+";
+    font-size: 10px;
+    margin-bottom: 1px;
+}
+
+.decrease .fa-font::after {
+    content: "-";
+}
+
+.fa-font, .fa-align-left ,
+.fa-align-justify, .fa-align-right{
     font-size: 20px;
+    padding: 10px;
+    text-align: left;
+    font-family: "Poppins - Semi Bold";
+    color :black;
+}
+
+.font-container {
+        width: 236px;
+        height: 50px;
+        box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+        border-radius: 10px;
+        background-color: #ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        border: none;
+}
+
+.fa-share-nodes{
+    background-color: #1e7cd3;
+    box-shadow: 2px 2px 0 #125492;
+}
+
+.fa-download{
+    background-color: #8f44bb;
+    box-shadow: 2px 2px 0 #662e86;
+}
+
+.fa-download, .fa-share-nodes{
+    width: 213px;
+    font-size: 14px;
+    padding: 20px 20px; 
+    margin: 15px;
+}
+
+.fa-share-nodes::after{
+    content: 'Share';
+    padding-left: 10px;
+}
+
+.fa-download::after{
+    content: 'Download';
+    padding-left: 10px;
+}
+
+
+/* Media Query*/
+
+@media (max-width: 980px) {
+    .editor-container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+    .controller-box{
+        height: 450px;
+        width: 450px;
+    }
+    .edit-txt-btn {
+        width: 400px;
+        margin: 10px 30px;
+    }
+    .text-input{
+        width: 350px;
+    }
+    .fa-download,
+    .fa-share-nodes{
+        width: 180px;
+    }
 }

@@ -147,16 +147,20 @@ function updateFontSize(diff) {
 
 // Update meme
 function updateMeme(key, value) {
+    if (gMeme.lines.length === 0) return
+
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines[lineIdx][key] = value
 }
 
 // Update Text align
 function updateTextAlign(value) {
+    if (gMeme.lines.length === 0) return
     const lineIdx = gMeme.selectedLineIdx
+
     if (value === 'left') gMeme.lines[lineIdx].pos.x = 45
-    else if (value === 'right') gMeme.lines[lineIdx].pos.x = 200
-    else if (value === 'center') gMeme.lines[lineIdx].pos.x = 120
+    else if (value === 'right') gMeme.lines[lineIdx].pos.x = 130
+    else if (value === 'center') gMeme.lines[lineIdx].pos.x = 90
 }
 
 // Add new  line
@@ -198,5 +202,10 @@ function switchLine() {
 
 // Update text pos 
 function updateTextPos(diff) {
+    if (gMeme.lines.length === 0) return
+    const topHeightCanvas = 50
+    const bottomHeightCanvas = 420
+
+    if (gMeme.lines[gMeme.selectedLineIdx].pos.y > bottomHeightCanvas || gMeme.lines[gMeme.selectedLineIdx].pos.y < topHeightCanvas) return
     gMeme.lines[gMeme.selectedLineIdx].pos.y += diff;
 }

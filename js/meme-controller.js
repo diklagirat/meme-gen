@@ -34,7 +34,7 @@ function drawImage() {
 function renderText() {
     const meme = getMeme()
     const lines = meme.lines
-
+    if (lines.legnth === 0) return
     lines.map(line => drawText(line))
 }
 
@@ -61,10 +61,9 @@ function onSetlineTxt(event) {
 
 function drawRect() {
     const meme = getMeme()
-    const lineIdx = meme.selectedLineIdx
-
     if (meme.lines.legnth === 0) return
 
+    const lineIdx = meme.selectedLineIdx
     var line = meme.lines[lineIdx]
     var { x, y } = line.pos
 
@@ -141,5 +140,5 @@ function onDownload(elLink) {
 
 // Share on facebook
 function onShareFaceBook() {
-    console.log('Todo: onShareFaceBook..')
+    uploadImg()
 }

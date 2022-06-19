@@ -14,4 +14,5 @@ function renderImgOnCanvas(imgId) {
     updateMemeImgId(imgId)
     renderMeme()
     document.querySelector('.gallery-container').style.display = "none"
+    document.querySelector('.editor-container').style.display = "flex"
 }
